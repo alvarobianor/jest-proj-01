@@ -12,5 +12,12 @@ module.exports.queryToObject = (string) =>
   Object.fromEntries(
     String(string)
       .split('&')
-      .map((item) => item.split('=')),
+      .map((item) => {
+        const [key, value] = item.split('=');
+
+        if (value.includes(',')) {
+          return [key, value.split(',')];
+        }
+        return [key, value];
+      }),
   );
