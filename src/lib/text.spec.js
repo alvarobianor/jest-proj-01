@@ -1,4 +1,4 @@
-const { HasNumbersInAPhrase } = require('./text');
+import { HasNumbersInAPhrase } from './text';
 
 it('should have a number into a phrase', () => {
   expect(HasNumbersInAPhrase('I have 1 million of rices')).toBe(true);
