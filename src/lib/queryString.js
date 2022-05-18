@@ -8,7 +8,9 @@ const keyValueToString = ([key, value]) => {
 module.exports.queryString = (obj) =>
   Object.entries(obj).map(keyValueToString).join('&');
 
-// module.exports.objectToQueryString = (obj) =>
-//   Object.entries(obj)
-//     .map(([key, value]) => `${key}=${value}`)
-//     .join('&');
+module.exports.queryToObject = (string) =>
+  Object.fromEntries(
+    String(string)
+      .split('&')
+      .map((item) => item.split('=')),
+  );
