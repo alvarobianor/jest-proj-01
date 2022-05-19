@@ -77,7 +77,7 @@ describe('Cart', () => {
     });
   });
 
-  describe('Name of the group', () => {
+  describe('checkout', () => {
     it('should return an object with the total and the list of itens of cart', () => {
       cart.add({
         product,
@@ -91,5 +91,31 @@ describe('Cart', () => {
 
       expect(cart.checkout()).toMatchSnapshot();
     });
+
+    it('should reset the cart when the checkout method is called', () => {
+      cart.add({
+        product: product2,
+        quantity: 48,
+      });
+
+      cart.checkout();
+
+      expect(cart.getTotal()).toEqual(0);
+    });
+  });
+
+  it('should return an object with the total and the list of itens of cart, when the summary is called', () => {
+    cart.add({
+      product,
+      quantity: 2,
+    });
+
+    cart.add({
+      product: product2,
+      quantity: 4,
+    });
+
+    expect(cart.summary()).toMatchSnapshot();
+    expect(cart.getTotal()).toBeGreaterThan(0);
   });
 });

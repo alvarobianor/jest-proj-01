@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cart Name of the group should return an object with the total and the list of itens of cart 1`] = `
+exports[`Cart checkout should return an object with the total and the list of itens of cart 1`] = `
 Object {
   "items": Array [
     Object {
@@ -19,5 +19,27 @@ Object {
     },
   ],
   "total": 2392980,
+}
+`;
+
+exports[`Cart should return an object with the total and the list of itens of cart, when the summary is called 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "product": Object {
+        "price": 14990,
+        "title": "Adidas running shoes",
+      },
+      "quantity": 2,
+    },
+    Object {
+      "product": Object {
+        "price": 32990,
+        "title": "moletom Air Jodan",
+      },
+      "quantity": 4,
+    },
+  ],
+  "total": 161940,
 }
 `;
